@@ -72,8 +72,9 @@ public class EllipseTest {
 	@Test
 	public void testPerimeter() {
 		Ellipse e1 = new Ellipse(new Point(0, 0), new Point(0, 5), new Point(2, 0));
-		double h = Math.pow(3, 2) / Math.pow(7, 2);
-        assertEquals(e1.perimeter(), Math.PI * (7) * (1 + (3 * h) / (10 + Math.sqrt(4 - 3 * h))));
+		double major = e1.getMajorLen(), minor = e1.getMinorLen();
+		double result = 2 * Math.PI * Math.sqrt((Math.pow(major, 2) + Math.pow(minor, 2))/2);
+		assertEquals(e1.perimeter(), result);
 	}
 	//Tests whether perimeter calculates the right length, uses Ramanujans approximation, idk what maria used again even though I was there when she wrote the code:( ;
 	
